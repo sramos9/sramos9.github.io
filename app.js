@@ -36,6 +36,7 @@ if (userClick === true){
 // NEED TO KNOW WHEN 3 IN A ROW/ WINNER
 // NEED TO KNOW WHEN NO SQUARES LEFT TO CLICK -
 //TIE IF NO ONE HAS WON (3 IN A ROW)
+//const $megaBoard = $('#mega');
 
 const $gameBoard = $('#board');
 for (let i = 0; i < 9; i++){
@@ -46,6 +47,14 @@ for (let i = 0; i < 9; i++){
   $($newDiv).on('click', someFunction);
 
 }
+
+//const $miniSquare
+// get array with .square class and then access each index of array (square)
+// create 9 mini add to square 0- 8, for each.
+// append to individual squares
+
+
+
 // TRYING TO MAKE MORE MINI BOARDS BUT IT IS NOT SEPARATING, IT'S ONE GIANT CONTINUATION
 // *************************************************
 
