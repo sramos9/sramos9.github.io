@@ -30,8 +30,10 @@ if (userClick === true){
     userClick = true;
   }
 // NEED TO MAKE SURE THE X AND O DON'T CLICK BACK IF DOUBLE CLICKED. THEY SHOULD STAY PUT
-
 }
+// this tells me what value to give once a user clicks
+// need this to incorporate 2 players
+
 
 const $gameBoard = $('#board');
 for (let i = 0; i < 9; i++){
@@ -42,6 +44,10 @@ for (let i = 0; i < 9; i++){
   $($newDiv).on('click', someFunction);
 
 }
+
+// THIS IS FOR A 3X3 NOW A MINI BOARD I will need 9 of these
+// these should all then be in a BIG BOARD
+// with defined borders so that it looks like a tic tac toe board
 
 const clearBox = (square) => {
   return $('.square').html('');
@@ -54,8 +60,6 @@ const clearBox = (square) => {
 
   clearBox();
   });
-
-
-
+  //$(e.currentTarget).text("X");
 
 })
