@@ -33,7 +33,9 @@ if (userClick === true){
 }
 // this tells me what value to give once a user clicks
 // need this to incorporate 2 players
-
+// NEED TO KNOW WHEN 3 IN A ROW/ WINNER
+// NEED TO KNOW WHEN NO SQUARES LEFT TO CLICK -
+//TIE IF NO ONE HAS WON (3 IN A ROW)
 
 const $gameBoard = $('#board');
 for (let i = 0; i < 9; i++){
@@ -44,6 +46,19 @@ for (let i = 0; i < 9; i++){
   $($newDiv).on('click', someFunction);
 
 }
+// TRYING TO MAKE MORE MINI BOARDS BUT IT IS NOT SEPARATING, IT'S ONE GIANT CONTINUATION
+// *************************************************
+
+// const $gameBoard2 = $('#board2');
+// for (let i = 0; i < 9; i++){
+//   // not sure if this is right
+//   const $newDiv =  $('<div/>').addClass('square').attr('id', i);
+//   $($gameBoard).append($newDiv);
+//
+//   $($newDiv).on('click', someFunction);
+//
+// }
+// *************************************************
 
 // THIS IS FOR A 3X3 NOW A MINI BOARD I will need 9 of these
 // these should all then be in a BIG BOARD

@@ -6,6 +6,18 @@
   border: 1px solid darkgrey;
 }
 
+#board2 {
+  border: 1px solid red;
+  height: 100px;
+  width: 100px;
+}
+
+#board3 {
+  border: 1px solid red;
+  height: 100px;
+  width: 100px;
+}
+
 .square {
   height: 250px;
   width: 250px;
