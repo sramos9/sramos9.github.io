@@ -28,11 +28,29 @@
   font-size: 100px;
   line-height: 250px;
   vertical-align: middle;
-  overflow: hidden;
 }
 
 /*mini square 80x80*/
 
+.innerSquare {
+  height: 68px;
+  width: 68px;
+  border: 1px solid red;
+  /*
+
+  align-items: flex-end;
+
+  flex-direction: row;
+  flex-flow: row wrap;
+  align-content: flex-end;*/
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
+  margin: 0 auto;
+  justify-content: center;
+
+
+  }
 
 button {
   width: 80%;

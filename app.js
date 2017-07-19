@@ -19,16 +19,22 @@ $(() => {
 
 
 
-const someFunction = (e) => {
-console.log(userClick);
-$(e.currentTarget).html("X");
-if (userClick === true){
-   $(e.currentTarget).html("X");
-   userClick = false;
+const playerSquare = (e) => {
+  console.log(userClick);
+  var clickedSquare = $(e.currentTarget)
+  if (clickedSquare.html() == ''){
+    if (userClick === true){
+      clickedSquare.html("X");
+      userClick = false;
+    } else {
+      clickedSquare.html("O");
+      userClick = true;
+    }
   } else {
-   $(e.currentTarget).html("O");
-    userClick = true;
+    return false;
   }
+
+
 // NEED TO MAKE SURE THE X AND O DON'T CLICK BACK IF DOUBLE CLICKED. THEY SHOULD STAY PUT
 }
 // this tells me what value to give once a user clicks
@@ -40,16 +46,27 @@ if (userClick === true){
 
 const $gameBoard = $('#board');
 for (let i = 0; i < 9; i++){
-  // not sure if this is right
-  const $newDiv =  $('<div/>').addClass('square').attr('id', i);
-  $($gameBoard).append($newDiv);
-
-  $($newDiv).on('click', someFunction);
-
+  const $bigSquare =  $('<div/>').addClass('square').attr('id', i);
+  $($gameBoard).append($bigSquare);
+  for (let j = 0; j < 9; j++) {
+    const $newMiniDiv = $('<div/>').addClass('innerSquare').attr('id', j);
+    $('.square').eq(i).append($newMiniDiv);
+    $($newMiniDiv).on('click', playerSquare);
+    console.log($newMiniDiv);
+  }
+  // $($bigSquare).on('click', playerSquare);
 }
 
-//const $miniSquare
-// get array with .square class and then access each index of array (square)
+//const $miniSquareBoard = $('#innerSquare');
+// for (let i = 0; i < 9; i++) {
+//   const $newMiniDiv = $('<div/>').addClass('innerSquare').attr('id', i);
+//   $('.square').eq(i).append($newMiniDiv);
+//   $($newMiniDiv).on('click', playerSquare);
+//   console.log($newMiniDiv);
+// }
+// get array with .square class and then access each index of array (square)$('.square')
+
+
 // create 9 mini add to square 0- 8, for each.
 // append to individual squares
 
@@ -74,9 +91,8 @@ for (let i = 0; i < 9; i++){
 // with defined borders so that it looks like a tic tac toe board
 
 const clearBox = (square) => {
-  return $('.square').html('');
-  clearBox().toggle().css('background-color', 'blue');
-  clearBox();
+  $('.square').html('');
+  userClick = true;
 }
 
   $('button').on('click', (e) => {
