@@ -33,9 +33,44 @@ const playerSquare = (e) => {
   } else {
     return false;
   }
+  checkWinner(clickedSquare);
+}
 
+// give mini divs numbers
+const winsArray = [
+ [0, 1, 2], // row 1
+ [3, 4, 5], // row 2
+ [6, 7, 8], // row 3
 
-// NEED TO MAKE SURE THE X AND O DON'T CLICK BACK IF DOUBLE CLICKED. THEY SHOULD STAY PUT
+ [0, 3, 6], //col 1
+ [1, 4, 7], // col 2
+ [2, 5, 8], // col 3
+
+ [0, 4, 8], // diag 1
+ [2, 4, 6] //dia 2
+];
+// win logic:
+
+// if row 1 (0, 1, 2) === x || === o - wins
+ // per row and diagonal
+
+// row 1/top row
+const checkWinner = (clickedSquare) => {
+  // if (winsArray[0] === "X" && winsArray[1] === "X" && winsArray[2] === "X") {
+  //   console.log("Winner Winner Chicken Dinner");
+  // } else {
+  //   console.log('no winner');
+  // }
+  //console.log(winsArray[0][0]);
+  for (let i = 0; i < winsArray.length; i++) {
+    if ($('#board').find('.innerSquare#' + winsArray[i][0]).html() === $('#board').find('.innerSquare#' + winsArray[i][1]).html() && $('#board').find('.innerSquare#' + winsArray[i][0]).html() === $('#board').find('.innerSquare#' + winsArray[i][2]).html() !== " "){
+      // NEED TO MAKE IT SO THAT IF IT IS EMPTY ITS NOT A FALSE WINNER
+      // HOW DO I WRITE AND NOT ' ' WITH THIS CODE?
+      console.log("Winner Winner Chicken Dinner");
+    } else {
+      console.log("no Winner");
+    }
+  }
 }
 // this tells me what value to give once a user clicks
 // need this to incorporate 2 players
@@ -52,39 +87,10 @@ for (let i = 0; i < 9; i++){
     const $newMiniDiv = $('<div/>').addClass('innerSquare').attr('id', j);
     $('.square').eq(i).append($newMiniDiv);
     $($newMiniDiv).on('click', playerSquare);
-    console.log($newMiniDiv);
+    // console.log($newMiniDiv);
   }
   // $($bigSquare).on('click', playerSquare);
 }
-
-//const $miniSquareBoard = $('#innerSquare');
-// for (let i = 0; i < 9; i++) {
-//   const $newMiniDiv = $('<div/>').addClass('innerSquare').attr('id', i);
-//   $('.square').eq(i).append($newMiniDiv);
-//   $($newMiniDiv).on('click', playerSquare);
-//   console.log($newMiniDiv);
-// }
-// get array with .square class and then access each index of array (square)$('.square')
-
-
-// create 9 mini add to square 0- 8, for each.
-// append to individual squares
-
-
-
-// TRYING TO MAKE MORE MINI BOARDS BUT IT IS NOT SEPARATING, IT'S ONE GIANT CONTINUATION
-// *************************************************
-
-// const $gameBoard2 = $('#board2');
-// for (let i = 0; i < 9; i++){
-//   // not sure if this is right
-//   const $newDiv =  $('<div/>').addClass('square').attr('id', i);
-//   $($gameBoard).append($newDiv);
-//
-//   $($newDiv).on('click', someFunction);
-//
-// }
-// *************************************************
 
 // THIS IS FOR A 3X3 NOW A MINI BOARD I will need 9 of these
 // these should all then be in a BIG BOARD
@@ -96,8 +102,7 @@ const clearBox = (square) => {
 }
 
   $('button').on('click', (e) => {
-  console.log('clicked');
-
+  // console.log('clicked');
   clearBox();
   });
   //$(e.currentTarget).text("X");
