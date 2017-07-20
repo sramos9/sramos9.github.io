@@ -19,7 +19,7 @@ const playerSquare = (e) => {
   console.log(userClick);
   var clickedSquare = $(e.currentTarget)
   if (clickedSquare.html() == ''){
-    if (userClick === true){
+    if (userClick){
       clickedSquare.html("X");
       userClick = false;
     } else {
@@ -29,7 +29,8 @@ const playerSquare = (e) => {
   } else {
     return false;
   }
-  checkWinner(gameNumber);
+  checkWinner(gameNumber, clickedSquare);
+
 }
 
 // give mini divs numbers
@@ -48,11 +49,17 @@ const winsArray = [
 // win logic:
 var gameNumber = 0;
 
-const checkWinner = (squareId) => {
+const checkWinner = (squareId, player) => {
   console.log(squareId);
   for (let i = 0; i < winsArray.length; i++) {
       if ( $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][1]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][2]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() !== '') {
         console.log("Winner Winner Chicken Dinner");
+        alert('This square has been won by '+ player.html());
+        // if (player.html() === "X"){
+        //   alert('This square has been won by X!')
+        // } else{
+        //   alert('This square has been won by O!')
+        // }
         gameNumber++;
         console.log(gameNumber);
         break;
@@ -60,12 +67,10 @@ const checkWinner = (squareId) => {
         console.log("no Winner");
       }
     }
-
 }
 
 // NEED ANOTHER FUNCTION THAT TELL YOUS WHEN A BOARD HAS BEEN WON.
 
-// need this to incorporate 2 players
 // NEED TO KNOW WHEN NO SQUARES LEFT TO CLICK -
 //TIE IF NO ONE HAS WON (3 IN A ROW)
 
