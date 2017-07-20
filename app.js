@@ -4,8 +4,6 @@ let userClick = true;
 $(() => {
 //console.log('connected');
 
-// NEED TO MAKE ULTIMATE TIC TAC TOE
-// 3X3 GRID, 9 TOTAL BOARDS/SQUARES: 1 big board comprised of 9 mini boards
 //  2 PLAYERS  - need that to be defined (input name) ** stretch (choose your value) **
 // WIN STATE: Winner per mini board will then have that board as their value on the BIG BOARD
 // LOSE STATE: since playing against another player, if they've won, you have lost.
@@ -15,8 +13,6 @@ $(() => {
 //clear board exists
 // TIMER? ** STRETCH **? MUST COMPLETE EACH mini board w/in a time limit
 // OR overall timer? -- player with most wins = winner?
-
-
 
 
 const playerSquare = (e) => {
@@ -33,7 +29,7 @@ const playerSquare = (e) => {
   } else {
     return false;
   }
-  checkWinner(clickedSquare);
+  checkWinner(gameNumber);
 }
 
 // give mini divs numbers
@@ -50,30 +46,25 @@ const winsArray = [
  [2, 4, 6] //diag 2
 ];
 // win logic:
+var gameNumber = 0;
 
-// if row 1 (0, 1, 2) === x || === o - wins
- // per row and diagonal
-
-// row 1/top row
-const checkWinner = (clickedSquare) => {
+const checkWinner = (squareId) => {
+  console.log(squareId);
   for (let i = 0; i < winsArray.length; i++) {
-    //   console.log($('#board').find('.innerSquare#' + winsArray[i][0]).html());
-    //   console.log($('#board').find('.innerSquare#' + winsArray[i][1]).html());
-    //   console.log($('#board').find('.innerSquare#' + winsArray[i][2]).html());
-
-    if ( $('#board').find('.innerSquare#' + winsArray[i][0]).html() === $('#board').find('.innerSquare#' + winsArray[i][1]).html() && $('#board').find('.innerSquare#' + winsArray[i][0]).html() === $('#board').find('.innerSquare#' + winsArray[i][2]).html() && $('#board').find('.innerSquare#' + winsArray[i][0]).html() !== '') {
-
-      console.log("Winner Winner Chicken Dinner");
-
-    } else {
-      console.log("no Winner");
+      if ( $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][1]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][2]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() !== '') {
+        console.log("Winner Winner Chicken Dinner");
+        gameNumber++;
+        console.log(gameNumber);
+        break;
+      } else {
+        console.log("no Winner");
+      }
     }
-  }
+
 }
 
 // NEED ANOTHER FUNCTION THAT TELL YOUS WHEN A BOARD HAS BEEN WON.
 
-// this tells me what value to give once a user clicks
 // need this to incorporate 2 players
 // NEED TO KNOW WHEN NO SQUARES LEFT TO CLICK -
 //TIE IF NO ONE HAS WON (3 IN A ROW)
@@ -91,9 +82,7 @@ for (let i = 0; i < 9; i++){
   // $($bigSquare).on('click', playerSquare);
 }
 
-// THIS IS FOR A 3X3 NOW A MINI BOARD I will need 9 of these
-// these should all then be in a BIG BOARD
-// with defined borders so that it looks like a tic tac toe board
+
 
 // CLEAR BOX IS NOT WORKING - IT REMOVES THE DIVS (MINI -INNER SQUARES )
 
