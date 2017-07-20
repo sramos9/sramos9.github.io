@@ -63,15 +63,24 @@ const checkWinner = (clickedSquare) => {
   // }
   //console.log(winsArray[0][0]);
   for (let i = 0; i < winsArray.length; i++) {
-    if ($('#board').find('.innerSquare#' + winsArray[i][0]).html() === $('#board').find('.innerSquare#' + winsArray[i][1]).html() && $('#board').find('.innerSquare#' + winsArray[i][0]).html() === $('#board').find('.innerSquare#' + winsArray[i][2]).html() !== " "){
-      // NEED TO MAKE IT SO THAT IF IT IS EMPTY ITS NOT A FALSE WINNER
-      // HOW DO I WRITE AND NOT ' ' WITH THIS CODE?
+    // console.log(winsArray[i][0]);
+    // console.log(winsArray[i][1]);
+    // console.log(winsArray[i][2]);
+      console.log($('#board').find('.innerSquare#' + winsArray[i][0]).html());
+      console.log($('#board').find('.innerSquare#' + winsArray[i][1]).html());
+      console.log($('#board').find('.innerSquare#' + winsArray[i][2]).html());
+
+    if ($('#board').find('.innerSquare#0').html() === $('#board').find('.innerSquare#1').html() && $('#board').find('.innerSquare#0').html() === $('#board').find('.innerSquare#2').html() && $('#board').find('.innerSquare#0').html() !== '') {
+  //  THIS WORKS! -- HOW DO I SIMPLIFY USING ARRAY AND LOOP?
       console.log("Winner Winner Chicken Dinner");
     } else {
       console.log("no Winner");
     }
   }
 }
+
+// NEED ANOTHER FUNCTION THAT TELL YOUS WHEN A BOARD HAS BEEN WON.
+
 // this tells me what value to give once a user clicks
 // need this to incorporate 2 players
 // NEED TO KNOW WHEN 3 IN A ROW/ WINNER
