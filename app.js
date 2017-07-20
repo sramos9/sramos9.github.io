@@ -63,6 +63,8 @@ const checkWinner = (squareId, player) => {
         gameNumber++;
         console.log(gameNumber);
         break;
+      // } else if ($('#board').find('.square#' + squareId + ' .innerSquare#' !== winsArray[i]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#'+ winsArray[i]).html() !== "") {
+      //   alert('Draw, no winner. Bummer!')
       } else {
         console.log("no Winner");
       }
