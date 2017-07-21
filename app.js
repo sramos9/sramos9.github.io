@@ -104,14 +104,23 @@ const updateScore = (newScore, player) => {
   } else {
       $('#scoreO').text(newScore);
   }
-
-
 }
 
-// NEED ANOTHER FUNCTION THAT TELL YOUS WHEN A BOARD HAS BEEN WON.
+// var $createStrikes = () => {
+//   var $strikesContainer = $('strikes');
+//   for(var i = 0; i < winsArray.length; i++) {
+//     const $strike = $('<span/>').addClass('strike');
+//     $strike.attr(id, 'strike') = 'strike' + '-' + winsArray[i][0] + '-' + winsArray[i][1] + '-' + winsArray[i][2];
+//     $($strikesContainer).append($strike);
+//   }
+// }
+//
+//
+// var showStrike = (winsArray) => {
+//   var strikeId = 'strike' + '-' + winsArray[0] + '-' + winsArray[1] + '-' + winsArray[2];
+//     $($strike).css('visibility', 'visible');
+// }
 
-// NEED TO KNOW WHEN NO SQUARES LEFT TO CLICK -
-//TIE IF NO ONE HAS WON (3 IN A ROW)
 
 const $gameBoard = $('#board');
 for (let i = 0; i < 9; i++){
@@ -123,7 +132,6 @@ for (let i = 0; i < 9; i++){
     $($newMiniDiv).on('click', playerSquare);
     // console.log($newMiniDiv);
   }
-  // $($bigSquare).on('click', playerSquare);
 }
 
 
@@ -135,13 +143,18 @@ for (let i = 0; i < 9; i++){
 // CLEAR BOX IS NOT WORKING - IT REMOVES THE DIVS (MINI -INNER SQUARES )
 
 const clearBox = (square) => {
-  $('.square').html('');
+  $('.innerSquare').html('');
   userClick = true;
+  scoreO = 0;
+  scoreX = 0;
+  $('#scoreX').text(scoreO);
+  $('#scoreO').text(scoreX);
 }
 
   $('button').on('click', (e) => {
   // console.log('clicked');
   clearBox();
+
   });
   //$(e.currentTarget).text("X");
 
