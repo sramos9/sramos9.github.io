@@ -60,11 +60,16 @@ const checkWinner = (squareId, player) => {
         // } else{
         //   alert('This square has been won by O!')
         // }
+
+        // use jquery TO change the innerSquare to html X or O based on the winner (create function for that  - call that function here instead of player.html)
+        
         gameNumber++;
         console.log(gameNumber);
         break;
       // } else if ($('#board').find('.square#' + squareId + ' .innerSquare#' !== winsArray[i]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#'+ winsArray[i]).html() !== "") {
       //   alert('Draw, no winner. Bummer!')
+
+      // could try setting a limit for 9 turns  - if no html in the innerSquare = draw/tie
       } else {
         console.log("no Winner");
       }
