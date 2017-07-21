@@ -1,4 +1,8 @@
 let userClick = true;
+let scoreX = 0;
+let scoreO = 0;
+
+
 
 
 $(() => {
@@ -31,6 +35,7 @@ const playerSquare = (e) => {
   }
   checkWinner(gameNumber, clickedSquare);
 
+
 }
 
 // give mini divs numbers
@@ -50,31 +55,44 @@ const winsArray = [
 var gameNumber = 0;
 
 const checkWinner = (squareId, player) => {
-  console.log(squareId);
   for (let i = 0; i < winsArray.length; i++) {
-      if ( $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][1]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][2]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() !== '') {
-        console.log("Winner Winner Chicken Dinner");
-        alert('This square has been won by '+ player.html());
-        // if (player.html() === "X"){
-        //   alert('This square has been won by X!')
-        // } else{
-        //   alert('This square has been won by O!')
-        // }
-
-        // use jquery TO change the innerSquare to html X or O based on the winner (create function for that  - call that function here instead of player.html)
-        
-        gameNumber++;
-        console.log(gameNumber);
-        break;
-      // } else if ($('#board').find('.square#' + squareId + ' .innerSquare#' !== winsArray[i]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#'+ winsArray[i]).html() !== "") {
-      //   alert('Draw, no winner. Bummer!')
-
-      // could try setting a limit for 9 turns  - if no html in the innerSquare = draw/tie
-      } else {
-        console.log("no Winner");
+    if ( $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][1]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][2]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() !== '') {
+      console.log("Winner Winner Chicken Dinner");
+      alert('This square has been won by '+ player.html());
+      if (player.html() === "X") {
+        scoreX++;
+        console.log(scoreX);
+      } else if (player.html() === "O") {
+        scoreO++;
+        console.log(scoreO);
       }
+      // HOW DO I GET THIS TO ALERT AFTER THE CLICK?
+
+        // IF TIME ALLOWS --  use jquery TO change the innerSquare to html X or O based on the winner (create function for that  - call that function here instead of player.html)
+      gameNumber++;
+      break;
+    } else if (
+      $('#board').find('.square#' + squareId + ' .innerSquare#0').html() &&
+      $('#board').find('.square#' + squareId + ' .innerSquare#1').html() &&
+      $('#board').find('.square#' + squareId + ' .innerSquare#2').html() &&
+      $('#board').find('.square#' + squareId + ' .innerSquare#3').html() &&
+      $('#board').find('.square#' + squareId + ' .innerSquare#4').html() &&
+      $('#board').find('.square#' + squareId + ' .innerSquare#5').html() &&
+      $('#board').find('.square#' + squareId + ' .innerSquare#6').html() &&
+      $('#board').find('.square#' + squareId + ' .innerSquare#7').html() &&
+      $('#board').find('.square#' + squareId + ' .innerSquare#8').html() !== ''
+    ){
+      // all sqaures filled, then it's a draw
+      alert("Bummer, this is a draw, move on!");
+      gameNumber++;
+      break;
+    } else {
+      // keep playing
+      console.log('no winner');
     }
+  }
 }
+
 
 // NEED ANOTHER FUNCTION THAT TELL YOUS WHEN A BOARD HAS BEEN WON.
 
@@ -94,6 +112,10 @@ for (let i = 0; i < 9; i++){
   // $($bigSquare).on('click', playerSquare);
 }
 
+
+
+
+// maybe have a function that greys out boards not being played/allowed
 
 
 // CLEAR BOX IS NOT WORKING - IT REMOVES THE DIVS (MINI -INNER SQUARES )
