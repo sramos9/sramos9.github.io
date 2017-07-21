@@ -1,7 +1,7 @@
 let userClick = true;
 let scoreX = 0;
 let scoreO = 0;
-
+let time = 300;
 
 
 
@@ -19,6 +19,7 @@ $(() => {
 // OR overall timer? -- player with most wins = winner?
 
 
+
 const playerSquare = (e) => {
   console.log(userClick);
   var clickedSquare = $(e.currentTarget)
@@ -33,6 +34,7 @@ const playerSquare = (e) => {
   } else {
     return false;
   }
+  setTimer();
   checkWinner(gameNumber, clickedSquare);
 
 
@@ -64,13 +66,18 @@ const checkWinner = (squareId, player) => {
         updateScore(scoreX, "X");
         //console.log(scoreX);
       } else if (player.html() === "O") {
+        //css('background-color','orange');
         scoreO++;
         updateScore(scoreO, "O");
         //console.log(scoreO);
       }
 
-      // HOW DO I GET THIS TO ALERT AFTER THE CLICK?
 
+      //$('#board').find('.square#0').css('background-color','pink');
+      //don't really know where I'm going with this -- changes sqaure 0, but isn't defined
+
+
+      // HOW DO I GET THIS TO ALERT AFTER THE CLICK?
         // IF TIME ALLOWS --  use jquery TO change the innerSquare to html X or O based on the winner (create function for that  - call that function here instead of player.html)
       gameNumber++;
       break;
@@ -95,8 +102,6 @@ const checkWinner = (squareId, player) => {
     }
   }
 }
-
-
 
 const updateScore = (newScore, player) => {
   if (player === 'X') {
@@ -134,8 +139,16 @@ for (let i = 0; i < 9; i++){
   }
 }
 
-
-
+const setTimer = () => {
+  const timer = setInterval(() => {
+    // where we want to decrease time and update timer on the dom
+    time--
+    if(time == 0) {
+      clearInterval(timer);
+    }
+    $('#timer').text('timer: ' + time + 's')
+  }, 2000)
+}
 
 // maybe have a function that greys out boards not being played/allowed
 
@@ -154,7 +167,7 @@ const clearBox = (square) => {
   $('button').on('click', (e) => {
   // console.log('clicked');
   clearBox();
-
+  setTimer();
   });
   //$(e.currentTarget).text("X");
 

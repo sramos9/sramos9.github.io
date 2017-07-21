@@ -101,6 +101,13 @@ h1 {
   font-family: impact;
 
 }
+#timer {
+  text-align: center;
+  margin: 0 auto;
+  justify-content: center;
+  display: flex;
+  padding-bottom: 10px;
+}
 
 /*#scoreX {
   border: 1px solid blue;
