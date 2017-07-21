@@ -80,17 +80,26 @@ h1 {
 }
 
 .scoreboard {
-  border: 1px solid red;
+  border: 1px solid grey;
   height: 200px;
   width: 400px;
   margin: 0 auto;
+  margin-top: 1%;
 }
 
 .player{
   display: inline-block;
   width: 48%;
+  height: 98%;
   box-sizing: border-box;
   text-align: center;
+  margin-left: 1%;
+  margin-top: 1%;
+  background-color: #b3b3b3;
+  color: #64868f;
+  font-weight: bold;
+  font-family: impact;
+
 }
 
 /*#scoreX {
