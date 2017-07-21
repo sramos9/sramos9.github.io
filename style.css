@@ -75,11 +75,8 @@ h1 {
   justify-content: center;
 }
 
-p {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+.rules {
+  text-align: center;
 }
 
 .scoreboard {
@@ -87,10 +84,16 @@ p {
   height: 200px;
   width: 400px;
   margin: 0 auto;
-  display: flex;
 }
 
-#scoreX {
+.player{
+  display: inline-block;
+  width: 48%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/*#scoreX {
   border: 1px solid blue;
   height: 150px;
   width: 350px;
@@ -108,4 +111,4 @@ p {
   display: inline-block;
   justify-content: center;
   text-align: center;
-}
+}*/

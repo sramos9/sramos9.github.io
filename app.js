@@ -61,11 +61,14 @@ const checkWinner = (squareId, player) => {
       alert('This square has been won by '+ player.html());
       if (player.html() === "X") {
         scoreX++;
-        console.log(scoreX);
+        updateScore(scoreX, "X");
+        //console.log(scoreX);
       } else if (player.html() === "O") {
         scoreO++;
-        console.log(scoreO);
+        updateScore(scoreO, "O");
+        //console.log(scoreO);
       }
+
       // HOW DO I GET THIS TO ALERT AFTER THE CLICK?
 
         // IF TIME ALLOWS --  use jquery TO change the innerSquare to html X or O based on the winner (create function for that  - call that function here instead of player.html)
@@ -93,6 +96,17 @@ const checkWinner = (squareId, player) => {
   }
 }
 
+
+
+const updateScore = (newScore, player) => {
+  if (player === 'X') {
+      $('#scoreX').text(newScore);
+  } else {
+      $('#scoreO').text(newScore);
+  }
+
+
+}
 
 // NEED ANOTHER FUNCTION THAT TELL YOUS WHEN A BOARD HAS BEEN WON.
 
