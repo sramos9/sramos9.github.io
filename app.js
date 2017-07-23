@@ -62,18 +62,20 @@ const checkWinner = (squareId, player) => {
       console.log("Winner Winner Chicken Dinner");
       alert('This square has been won by '+ player.html());
       if (player.html() === "X") {
+        $('#board').find('.square#' + squareId).css('background-color','pink').html('<p id="bigX">X</p>');
         scoreX++;
         updateScore(scoreX, "X");
         //console.log(scoreX);
       } else if (player.html() === "O") {
         //css('background-color','orange');
+        $('#board').find('.square#' + squareId).css('background-color','orange').html('<p id="bigO">O</p>');
         scoreO++;
         updateScore(scoreO, "O");
         //console.log(scoreO);
       }
 
 
-      //$('#board').find('.square#0').css('background-color','pink');
+
       //don't really know where I'm going with this -- changes sqaure 0, but isn't defined
 
 
