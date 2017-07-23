@@ -1,7 +1,7 @@
 let userClick = true;
 let scoreX = 0;
 let scoreO = 0;
-let time = 300;
+let time = 420;
 
 
 
@@ -142,18 +142,16 @@ for (let i = 0; i < 9; i++){
 const setTimer = () => {
   const timer = setInterval(() => {
     // where we want to decrease time and update timer on the dom
-    time--
-    if(time == 0) {
+    time--;
+    if(time === 0) {
       clearInterval(timer);
     }
     $('#timer').text('timer: ' + time + 's')
   }, 2000)
-}
+};
 
 // maybe have a function that greys out boards not being played/allowed
 
-
-// CLEAR BOX IS NOT WORKING - IT REMOVES THE DIVS (MINI -INNER SQUARES )
 
 const clearBox = (square) => {
   $('.innerSquare').html('');
