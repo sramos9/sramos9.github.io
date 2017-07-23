@@ -57,52 +57,69 @@ const winsArray = [
 var gameNumber = 0;
 
 const checkWinner = (squareId, player) => {
-  for (let i = 0; i < winsArray.length; i++) {
-    if ( $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][1]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][2]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() !== '') {
-      console.log("Winner Winner Chicken Dinner");
-      alert('This square has been won by '+ player.html());
-      if (player.html() === "X") {
-        $('#board').find('.square#' + squareId).css('background-color','pink').html('<p id="bigX">X</p>');
-        scoreX++;
-        updateScore(scoreX, "X");
-        //console.log(scoreX);
-      } else if (player.html() === "O") {
-        //css('background-color','orange');
-        $('#board').find('.square#' + squareId).css('background-color','orange').html('<p id="bigO">O</p>');
-        scoreO++;
-        updateScore(scoreO, "O");
-        //console.log(scoreO);
+  console.log(gameNumber);
+    for (let i = 0; i < winsArray.length; i++) {
+      if ( $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][1]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() === $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][2]).html() && $('#board').find('.square#' + squareId + ' .innerSquare#' + winsArray[i][0]).html() !== '') {
+        console.log("Winner Winner Chicken Dinner");
+        alert('This square has been won by '+ player.html());
+        if (player.html() === "X") {
+          $('#board').find('.square#' + squareId).css('background-color','#b3b3b3').html('<p id="bigX">X</p>');
+          scoreX++;
+          updateScore(scoreX, "X");
+          //console.log(scoreX);
+        } else if (player.html() === "O") {
+          //css('background-color','orange');
+          $('#board').find('.square#' + squareId).css('background-color','#64868f').html('<p id="bigO">O</p>');
+          scoreO++;
+          updateScore(scoreO, "O");
+          //console.log(scoreO);
+        }
+        gameNumber++;
+        if (gameNumber > 8) {
+          if (scoreX > scoreO) {
+            $('#board').html('<p id="board2">X</p>');
+            alert('player X won!');
+          } else if (scoreO > scoreX){
+            $('#board').html('<p id="board2">O</p>');
+            alert('player O won!');
+          } else {
+            $('#board').html('<p id="board2">TIE</p>');
+            alert('No winner, Tie!');
+          }
+        }
+        break;
+      } else if (
+        $('#board').find('.square#' + squareId + ' .innerSquare#0').html() &&
+        $('#board').find('.square#' + squareId + ' .innerSquare#1').html() &&
+        $('#board').find('.square#' + squareId + ' .innerSquare#2').html() &&
+        $('#board').find('.square#' + squareId + ' .innerSquare#3').html() &&
+        $('#board').find('.square#' + squareId + ' .innerSquare#4').html() &&
+        $('#board').find('.square#' + squareId + ' .innerSquare#5').html() &&
+        $('#board').find('.square#' + squareId + ' .innerSquare#6').html() &&
+        $('#board').find('.square#' + squareId + ' .innerSquare#7').html() &&
+        $('#board').find('.square#' + squareId + ' .innerSquare#8').html() !== ''
+      ){
+        // all sqaures filled, then it's a draw
+        alert("Bummer, this is a draw, move on!");
+        gameNumber++;
+        if (gameNumber > 8) {
+          if (scoreX < scoreO) {
+            $('#board').html('<p>X</p>');
+            alert('player X won!');
+          } else if (scoreO < scoreX){
+            $('#board').html('<p>O</p>')
+            alert('player O won!');
+          } else {
+            $('#board').html('<p>TIE</p>')
+            alert('No winner, Tie!');
+          }
+        }
+        break;
+      } else {
+        // keep playing
+        console.log('no winner');
       }
-
-
-
-      //don't really know where I'm going with this -- changes sqaure 0, but isn't defined
-
-
-      // HOW DO I GET THIS TO ALERT AFTER THE CLICK?
-        // IF TIME ALLOWS --  use jquery TO change the innerSquare to html X or O based on the winner (create function for that  - call that function here instead of player.html)
-      gameNumber++;
-      break;
-    } else if (
-      $('#board').find('.square#' + squareId + ' .innerSquare#0').html() &&
-      $('#board').find('.square#' + squareId + ' .innerSquare#1').html() &&
-      $('#board').find('.square#' + squareId + ' .innerSquare#2').html() &&
-      $('#board').find('.square#' + squareId + ' .innerSquare#3').html() &&
-      $('#board').find('.square#' + squareId + ' .innerSquare#4').html() &&
-      $('#board').find('.square#' + squareId + ' .innerSquare#5').html() &&
-      $('#board').find('.square#' + squareId + ' .innerSquare#6').html() &&
-      $('#board').find('.square#' + squareId + ' .innerSquare#7').html() &&
-      $('#board').find('.square#' + squareId + ' .innerSquare#8').html() !== ''
-    ){
-      // all sqaures filled, then it's a draw
-      alert("Bummer, this is a draw, move on!");
-      gameNumber++;
-      break;
-    } else {
-      // keep playing
-      console.log('no winner');
     }
-  }
 }
 
 const updateScore = (newScore, player) => {

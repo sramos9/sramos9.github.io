@@ -76,7 +76,7 @@ h1 {
 
 .rules {
   text-align: center;
-  font-family: tahoma;
+  font-family: arial;
 }
 
 .scoreboard {
@@ -109,7 +109,15 @@ h1 {
   justify-content: center;
   display: flex;
   padding-bottom: 10px;
-  font-family: tahoma;
+  font-family: arial;
+}
+
+#board2 {
+  font-size: 600px;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  font-family: arial;
 }
 
 /*#scoreX {
