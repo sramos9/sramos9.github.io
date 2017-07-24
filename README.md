@@ -8,3 +8,4 @@ A few for loops were needed to iterate over: wins, mini-games, game rounds, and 
 
 A few unsolved problems are: I'd like to create an overall win combination for a large board using the win value of the mini boards. That would require re-factoring some code, alterations and more time. 
 I'd also like to include css animation for the strikethrough function of a win. 
+I would also like to make it so that the boards not being played were disabled or transparent so that the user is forced to play one at a time without it being just explained in the instructinos. 
