@@ -1,6 +1,5 @@
 # sramos9.github.io
 
-explanations of the technologies used, the approach taken, a link to your live site, installation instructions, unsolved problems, etc.
 
 I used Jquery to create divs and text upon user clicks which are not hard coded into the game. 
 setInterval was used to create a timer function - which poses an additional challenge of completing the game within the given time.
